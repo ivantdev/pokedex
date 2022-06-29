@@ -1,0 +1,246 @@
+:root{
+    --text-black: #292929;
+    --text-yellow: #eebe3e;
+
+    --item-background-normal: #0103817a;
+    --item-background-green: #6ecdb2;
+    --item-background-red: #eb766f;
+    --item-background-yellow: #f1c748;
+    --item-background-soft-blue: #9cc8fa;
+    --item-background-blue: #5399e9;
+    --item-background-gray: #acacac;
+
+    --type-background-normal: #9d9fcf;
+    --type-background-green: #9dcfc1;
+    --type-background-red: #ec9590;
+    --type-background-yellow: #fad76e;
+    --type-background-soft-blue: #badafd;
+    --type-background-blue: #79abe4;
+    --type-background-gray: #c4c4c4;
+
+    --button-back-bg: #a0a0a083;
+    --button-purple-bg: #373d62;
+}
+
+/* Resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Global */
+
+html {
+    font-size: 62.5%;
+    background-color: var(--text-black);
+}
+
+body {
+    margin: 0 auto;
+    max-width: 500px;
+    font-family: "Montserrat", sans-serif;
+    color: var(--text-black);
+    background: #fff;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+.header__title {
+    font-size: 4rem;
+    padding: 20px;
+}
+
+.header__back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+    margin-left: 25px;
+    z-index: 1;
+}
+
+.back-button {
+    width: 45px;
+    height: 45px;
+    font-size: 2.8rem;
+    color: #ffffff9a;
+    background-color: var(--button-back-bg);
+    border-radius: 40px;
+}
+
+/* Main - section list */
+
+main {
+    width: 100%;
+    height: auto;
+}
+
+.main__list {
+    width: calc(100% - 40px);
+    margin: 20px 20px;
+    margin-top: 60px;
+}
+
+.list__pokemons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    row-gap: 80px;
+}
+
+.list__pokemons .pokemon {
+    position: relative;
+    min-height: 160px;
+    padding: 10px;
+    padding-top: 80px;
+    border-radius: 30px;
+    background-color: var(--item-background-normal);
+    color: #fff;
+}
+
+.list__pokemons .pokemon::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    background-image: url("../pokeball.svg");
+    background-position: 80px 80px;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+
+.pokemon__image {
+    position: absolute;
+    top: -75px;
+}
+
+.pokemon__image img{
+    width: 150px;
+}
+
+
+.list__pokemon-hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list__pokemon-hero h3 {
+    font-size: 1.8rem;
+}
+
+.list__pokemon-hero .pokemon-id {
+    width: 50px;
+    padding-right: 5px;
+    text-align: right;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.list__pokemon-type {
+    display: flex;
+    margin: 10px 0;
+}
+
+.pokemon-type {
+    position: relative;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background: var(--type-background-normal);
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+.pokemon__button {
+    position: relative;
+    padding: 7px 10px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--button-purple-bg);
+    border-radius: 20px;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+/* Utils */
+
+.inactive {
+    display: none;
+}
+
+.list__pokemons .box__green {
+    background-color: var(--item-background-green);
+}
+.list__pokemons .box__red {
+    background-color: var(--item-background-red);
+}
+.list__pokemons .box__yellow {
+    background-color: var(--item-background-yellow);
+}
+.list__pokemons .box__soft-blue {
+    background-color: var(--item-background-soft-blue);
+}
+.list__pokemons .box__blue {
+    background-color: var(--item-background-blue);
+}
+.list__pokemons .box__gray {
+    background-color: var(--item-background-gray);
+}
+
+.box__green .pokemon-type {
+    background-color: var(--type-background-green);
+}
+.box__red .pokemon-type {
+    background-color: var(--type-background-red);
+}
+.box__yellow .pokemon-type {
+    background-color: var(--type-background-yellow);
+}
+.box__soft-blue .pokemon-type {
+    background-color: var(--type-background-soft-blue);
+}
+.box__blue .pokemon-type {
+    background-color: var(--type-background-blue);
+}
+.box__gray .pokemon-type {
+    background-color: var(--type-background-gray);
+}
