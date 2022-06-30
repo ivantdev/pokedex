@@ -2,13 +2,16 @@
     --text-black: #292929;
     --text-yellow: #eebe3e;
 
-    --item-background-normal: #0103817a;
+    --background-white-transparent: #ffffff81;
+
+    --item-background-normal: #8586bf;
     --item-background-green: #6ecdb2;
     --item-background-red: #eb766f;
     --item-background-yellow: #f1c748;
     --item-background-soft-blue: #9cc8fa;
     --item-background-blue: #5399e9;
     --item-background-gray: #acacac;
+    --item-background-ground: #a9766d;
 
     --type-background-normal: #9d9fcf;
     --type-background-green: #9dcfc1;
@@ -17,8 +20,9 @@
     --type-background-soft-blue: #badafd;
     --type-background-blue: #79abe4;
     --type-background-gray: #c4c4c4;
+    --type-background-ground: #ad8f89;
 
-    --button-back-bg: #a0a0a083;
+    --button-back-bg: #a0a0a069;
     --button-purple-bg: #373d62;
 }
 
@@ -48,12 +52,10 @@ a {
 
 html {
     font-size: 62.5%;
-    background-color: var(--text-black);
 }
 
 body {
     margin: 0 auto;
-    max-width: 500px;
     font-family: "Montserrat", sans-serif;
     color: var(--text-black);
     background: #fff;
@@ -62,33 +64,35 @@ body {
 /* Header */
 
 header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
     width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
+    background: var(--background-white-transparent);
 }
 
 .header__title {
-    font-size: 4rem;
-    padding: 20px;
+    font-size: 2rem;
 }
 
-.header__back {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    margin-top: 25px;
-    margin-left: 25px;
-    z-index: 1;
+.header__search-form input {
+    width: calc(100% - 40px);
+    height: 35px;
+    padding-left: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 20px;
+    outline: none;
 }
 
-.back-button {
-    width: 45px;
-    height: 45px;
-    font-size: 2.8rem;
-    color: #ffffff9a;
+.header__search-form input:focus {
     background-color: var(--button-back-bg);
-    border-radius: 40px;
 }
 
 /* Main - section list */
@@ -99,21 +103,29 @@ main {
 }
 
 .main__list {
-    width: calc(100% - 40px);
-    margin: 20px 20px;
-    margin-top: 60px;
+    width: calc(100%);
+    margin: 0 auto;
+    padding: 100px 10px 0 10px;
+    box-shadow: 0 -10px 15px -9px #00000079;
+    border-radius: 40px;
 }
 
 .list__pokemons {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    place-items: center;
+    gap: 10px;
     row-gap: 80px;
 }
 
-.list__pokemons .pokemon {
+.pokemon {
     position: relative;
-    min-height: 160px;
+    min-height: 150px;
+    height: 100%;
+    width: calc(100vw/2 - 20px);
+    max-width: 190px;
+    margin: 0 auto;
     padding: 10px;
     padding-top: 80px;
     border-radius: 30px;
@@ -121,7 +133,7 @@ main {
     color: #fff;
 }
 
-.list__pokemons .pokemon::before {
+.pokemon::before {
     content: "";
     position: absolute;
     top: 0px;
@@ -142,10 +154,15 @@ main {
 .pokemon__image {
     position: absolute;
     top: -75px;
+    left: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .pokemon__image img{
-    width: 150px;
+    width: 100%;
+    min-height: 120px;
+    max-width: 150px;
 }
 
 
@@ -159,6 +176,7 @@ main {
 
 .list__pokemon-hero h3 {
     font-size: 1.8rem;
+    text-transform: capitalize;
 }
 
 .list__pokemon-hero .pokemon-id {
@@ -170,17 +188,25 @@ main {
 }
 
 .list__pokemon-type {
+    max-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     margin: 10px 0;
+}
+
+.list__pokemon-type:last-child {
+    margin: 0;
 }
 
 .pokemon-type {
     position: relative;
+    margin-bottom: 10px;
     margin-right: 10px;
     padding: 5px 10px;
     background: var(--type-background-normal);
     border-radius: 20px;
     font-size: 1.2rem;
+    text-transform: capitalize;
 }
 
 .pokemon__button {
@@ -192,6 +218,87 @@ main {
     border-radius: 20px;
 }
 
+/* Main pokemon details */
+
+.main__details {
+    position: relative;
+    height: 600px;
+    z-index: 0;
+}
+
+.details__background {
+    position: absolute;
+    width: 100%;
+    height: 75%;
+    z-index: -1;
+    top: 0;
+    background-color: var(--item-background-normal);
+}
+
+.details__image::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    background-image: url("../pokeball.svg");
+    background-position: -80px -40px;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.details__image .details__background::after {
+    content: '';
+    width: 100%;
+    height: 10%;
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    border-radius: 0 0 100% 100%;
+    transform:translate(0, 50%);
+    background-color: var(--item-background-normal);
+}
+
+.details__image .box__green::after {
+    background-color: var(--item-background-green);
+}
+
+.details__image .box__red::after {
+    background-color: var(--item-background-red);
+}
+.details__image .box__yellow::after {
+    background-color: var(--item-background-yellow);
+}
+.details__image .box__soft::after-blue {
+    background-color: var(--item-background-soft-blue);
+}
+.details__image .box__blue::after {
+    background-color: var(--item-background-blue);
+}
+.details__image .box__gray::after {
+    background-color: var(--item-background-gray);
+}
+.details__image .box__ground::after {
+    background-color: var(--item-background-ground);
+}
+
+.details__image {
+    padding-top: 50px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.details__image img {
+    width: 80%;
+    max-width: 400px;
+}
 
 /* Footer */
 
@@ -207,23 +314,26 @@ footer {
     display: none;
 }
 
-.list__pokemons .box__green {
+.box__green {
     background-color: var(--item-background-green);
 }
-.list__pokemons .box__red {
+.box__red {
     background-color: var(--item-background-red);
 }
-.list__pokemons .box__yellow {
+.box__yellow {
     background-color: var(--item-background-yellow);
 }
-.list__pokemons .box__soft-blue {
+.box__soft-blue {
     background-color: var(--item-background-soft-blue);
 }
-.list__pokemons .box__blue {
+.box__blue {
     background-color: var(--item-background-blue);
 }
-.list__pokemons .box__gray {
+.box__gray {
     background-color: var(--item-background-gray);
+}
+.box__ground {
+    background-color: var(--item-background-ground);
 }
 
 .box__green .pokemon-type {
@@ -243,4 +353,7 @@ footer {
 }
 .box__gray .pokemon-type {
     background-color: var(--type-background-gray);
+}
+.box__ground .pokemon-type {
+    background-color: var(--type-background-ground);
 }

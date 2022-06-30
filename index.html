@@ -12,108 +12,26 @@
 <body>
     <header>
         <h1 class="header__title">Pokedex</h1>
-        <div class="header__back inactive">
-            <button type="button" class="back-button" id="back-button"><i class="fa-solid fa-angle-left"></i></button>
-        </div>
+        <form action="" onsubmit="query()" class="header__search-form">
+            <input type="text" name="query" value="" placeholder="type a id or name">
+            <button type="submit">
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+            </button>
+        </form>
     </header>
     <main>
         <section class="main__details">
+            <div class="details__image">
+                <div class="details__background  box__green">
+                </div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="">
+            </div>
             
         </section>
 
         <section class="main__list">
-            <ul class="list__pokemons">
+            <ul class="list__pokemons" id="listPokemons">
                 <li class="pokemon box__green">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon box__red">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon box__yellow">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon box__soft-blue">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon box__blue">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon box__gray">
-                    <div class="list__pokemon-hero">
-                        <h3>Bulbasaur</h3>
-                        <span class="pokemon-id">#1</span>
-                    </div>
-                    <div class="list__pokemon-type">
-                        <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
-                    </div>
-                    <div class="pokemon__image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
-                    </div>
-                    <button type="button" class="pokemon__button">Seen more</button>
-                </li>
-
-                <li class="pokemon">
                     <div class="list__pokemon-hero">
                         <h3>Bulbasaur</h3>
                         <span class="pokemon-id">#1</span>
@@ -136,6 +54,7 @@
     <footer>
         <p>Made by <a href="https://github.com/ivantdev/" target="_blank">@ivantdev</a></p>
     </footer>
+    <script src="./src/nodes.js"></script>
     <script src="./src/index.js"></script>
 </body>
 </html>
