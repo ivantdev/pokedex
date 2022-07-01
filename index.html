@@ -12,21 +12,83 @@
 <body>
     <header>
         <h1 class="header__title">Pokedex</h1>
-        <form action="" onsubmit="query()" class="header__search-form">
+        <form onsubmit="searchPokemon()" class="header__search-form">
             <input type="text" name="query" value="" placeholder="type a id or name">
             <button type="submit">
                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
             </button>
         </form>
     </header>
+
     <main>
         <section class="main__details">
+            <div class="details__buttons">
+                <button type="button" class="buttons__pokemon" id="previousPokemon"><i class="fa-solid fa-arrow-left"></i></button>
+                <button type="button" class="buttons__pokemon" id="nextPokemon"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
             <div class="details__image">
-                <div class="details__background  box__green">
+                <div class="details__background box__green">
                 </div>
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="">
+                <h2 class="details__name">Bulbasaur</h2>
+                <h2 class="details__id">#1</h2>
             </div>
-            
+            <div class="details__details box__green no-background">
+                <div class="list__pokemon-type details__type">
+                    <span class="pokemon-type">Fire</span>
+                    <span class="pokemon-type">Water</span>
+                </div>
+                <div class="details__about">
+                    <h2>About</h2>
+                    <p class="about__description">When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.</p>
+                    <div class="about__features">
+                        <div class="features__height">
+                            <span class="height__value">2.3 mts.</span>
+                            <span class="title">Height</span>
+                        </div>
+                        <div class="features__weight">
+                            <span class="weight__value">43 Kgr.</span>
+                            <span class="title">Weight</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2>Base Stats</h2>
+                    <div class="stats__container">
+                        <span class="stat__name">HP</span>
+                        <span class="stat__value" id="hpValue">40</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="hpLine"></span>
+                        </div>
+                        <span class="stat__name">ATK</span>
+                        <span class="stat__value" id="atkValue">70</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="atkLine"></span>
+                        </div>
+                        <span class="stat__name">DEF</span>
+                        <span class="stat__value" id="defValue">67</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="defLine"></span>
+                        </div>
+                        <span class="stat__name">S.ATK</span>
+                        <span class="stat__value" id="satkValue">88</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="satkLine"></span>
+                        </div>
+                        <span class="stat__name">S.DEF</span>
+                        <span class="stat__value" id="sdefValue">43</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="sdefLine"></span>
+                        </div>
+                        <span class="stat__name">SPEED</span>
+                        <span class="stat__value" id="speedfValue">43</span>
+                        <div class="bar__container">
+                            <span class="stat__bar" id="speedfLine"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="main__list">
@@ -38,7 +100,7 @@
                     </div>
                     <div class="list__pokemon-type">
                         <span class="pokemon-type">Fire</span>
-                        <span class="pokemon-type">Whater</span>
+                        <span class="pokemon-type">Water</span>
                     </div>
                     <div class="pokemon__image">
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Image of Pokemon">
@@ -46,13 +108,15 @@
                     <button type="button" class="pokemon__button">Seen more</button>
                 </li>
             </ul>
-            <div class="nav-buttons">
-
+            <div class="main__buttons-nav">
+                <button type="button" id="previousPagePokemons" class="nav__buttons">Previous</button>
+                <button type="button" id="nextPagePokemons" class="nav__buttons">Next</button>
             </div>
         </section>
     </main>
     <footer>
         <p>Made by <a href="https://github.com/ivantdev/" target="_blank">@ivantdev</a></p>
+        <p class="footer__credits">Inspiration: <a href="https://dribbble.com/shots/5619897-Pok-dex-Gengar" target="_blank">Pokédex Gengar - Austin Jones</a> | <a href="https://dribbble.com/shots/14241781-Pok-dex" target="_blank">Pokédex - Bruna Campos</a> | <a href="https://dribbble.com/shots/6540871-Pokedex-App" target="_blank">Pokédex App - Seapul Nahwan</a></p>
     </footer>
     <script src="./src/nodes.js"></script>
     <script src="./src/index.js"></script>
