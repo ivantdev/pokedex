@@ -532,7 +532,7 @@ footer {
 .details__image .box__yellow::after {
     background-color: var(--item-background-yellow);
 }
-.details__image .box__soft::after-blue {
+.details__image .box__soft-blue::after {
     background-color: var(--item-background-soft-blue);
 }
 .details__image .box__blue::after {
