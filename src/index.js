@@ -130,7 +130,7 @@ const getPokemonDetails = async (str) => {
     if(data.sprites.other["official-artwork"].front_default != null) {
         imagePokemonSection.src = data.sprites.other["official-artwork"].front_default;
     } else {
-        imagePokemonSection.src = "../imgs/pokeball-color.png";
+        imagePokemonSection.src = "./imgs/pokeball-color.png";
     }
 
     const ice = data.types.some((item => {
