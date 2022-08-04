@@ -1,2 +1,1 @@
-# pokedex
-Using Pokemon API
+# Pokedex - Conoces a tus pokemones?
