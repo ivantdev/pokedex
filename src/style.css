@@ -41,6 +41,7 @@
 button {
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 li {
